@@ -1,58 +1,51 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate('/dashboard');
+    // Redirect to dashboard on click
+    navigate("/dashboard");
   };
 
   return (
     <div className="login-page">
-      <div className="hero-section">
-        <div className="hero-content">
-          <h2>Decide faster so you can do more</h2>
-          <p>Join our community and manage your workflow efficiently.</p>
+      <div className="glass-card">
+        <div className="header">
+          <h1 className="welcome">Welcome Back</h1>
+          <p className="subtitle">Please login to your account</p>
         </div>
-      </div>
 
-      <div className="form-section">
-        <div className="form-wrapper">
-          <div className="form-header">
-            <h2>Log in</h2>
+        <form onSubmit={handleLogin}>
+          <div className="input-group">
+            <label>Email</label>
+            <input type="email" placeholder="username@gmail.com" required />
           </div>
-          <form onSubmit={handleLogin}>
-            <div className="input-group">
-              <label>Email</label>
-              <input 
-                type="email" 
-                placeholder="name@company.com" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required 
-              />
+
+          <div className="input-group">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" required />
+            <div className="forgot-pass">
+              <a href="#">Forgot Password?</a>
             </div>
-            <div className="input-group">
-              <label>Password</label>
-              <input 
-                type="password" 
-                placeholder="6+ characters" 
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required 
-              />
-            </div>
-            <button type="submit" className="login-btn">Login</button>
-          </form>
-          <p className="footer-text">
-            Don't have an account? <span className="link">Sign Up</span>
-          </p>
+          </div>
+
+          <button type="submit" className="sign-in-btn">Sign In</button>
+        </form>
+
+        <div className="separator"><span>or continue with</span></div>
+
+        <div className="social-grid">
+          <button className="social-item">Google</button>
+          <button className="social-item">Github</button>
         </div>
+
+        <p className="footer-text">
+          Don't have an account? <a href="#">Register</a>
+        </p>
       </div>
     </div>
   );

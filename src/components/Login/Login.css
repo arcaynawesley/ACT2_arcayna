@@ -1,101 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
+/* FULL BACKGROUND - Centers the card on Desktop */
 .login-page {
-  display: flex;
   height: 100vh;
   width: 100vw;
-  font-family: 'Inter', sans-serif;
-  background: white;
-}
-
-.hero-section {
-  flex: 1.2;
-  background: linear-gradient(135deg, #0033ad 0%, #001f6b 100%);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 10%;
-  color: white;
+  justify-content: center; /* Horizontal center */
+  align-items: center;     /* Vertical center */
+  background: radial-gradient(circle at top left, #1e3c72, #2a5298, #000000);
+  overflow: hidden;
+  margin: 0;
 }
 
-.hero-content h2 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.form-section {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-wrapper {
+/* LOGIN CARD - Glass effect with no outer border */
+.glass-card {
   width: 100%;
-  max-width: 380px;
+  max-width: 400px; /* Limits width on desktop */
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  color: white;
+  animation: fadeIn 0.8s ease-out;
 }
 
-.form-header h2 {
-  font-size: 2rem;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.welcome {
+  font-size: 32px;
   font-weight: 700;
-  margin-bottom: 2rem;
-  color: #1a1a1a;
+  letter-spacing: -0.5px;
 }
 
+.subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
+}
+
+/* INPUTS */
 .input-group {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  margin-bottom: 22px;
 }
 
 .input-group label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #444;
+  display: block;
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .input-group input {
+  width: 100%;
   padding: 14px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fcfcfc;
-  font-size: 1rem;
-  /* THIS ENSURES TYPED TEXT IS BLACK */
-  color: #000000; 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+  transition: 0.3s;
 }
 
 .input-group input:focus {
-  outline: none;
-  border-color: #0033ad;
-  box-shadow: 0 0 0 4px rgba(0, 51, 173, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-.login-btn {
+/* BUTTONS */
+.sign-in-btn {
   width: 100%;
-  padding: 14px;
-  background: #ff5c5c;
-  color: white;
+  padding: 15px;
   border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #000;
+  font-weight: 700;
   cursor: pointer;
-  margin-top: 10px;
+  transition: transform 0.2s, background 0.2s;
 }
 
+.sign-in-btn:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+/* SOCIALS */
+.social-grid {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.social-item {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* FOOTER */
 .footer-text {
-  margin-top: 2rem;
   text-align: center;
-  font-size: 0.9rem;
-  color: #777;
+  margin-top: 30px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.link {
-  color: #0033ad;
+.footer-text a {
+  color: white;
   font-weight: 600;
-  cursor: pointer;
+  text-decoration: none;
 }
